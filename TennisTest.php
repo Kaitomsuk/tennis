@@ -4,7 +4,7 @@ class Tennis
 {
 	var $aScore = 0;
 	var $bScore = 0;
-	var $score 	= array('Love', '15', '30');
+	var $score 	= array('Love', '15', '30', '40');
 
 	function getScore()
 	{
@@ -70,6 +70,28 @@ class TennisTest extends PHPUnit_Framework_TestCase
 		$tennis->bGetScore();
 
 		$this->assertEquals( '15 30', $tennis->getScore() );
+	}
+
+	function testWhenScore30AllAndBGetScoreThenScoreShouldBe3040()
+	{
+		$tennis = new Tennis();
+		$this->setPoint($tennis, 2, 2);
+
+		$tennis->bGetScore();
+
+		$this->assertEquals( '30 40', $tennis->getScore() );
+	}
+
+	private function setPoint($tennis, $aPoint, $bPoint)
+	{
+		for($i = 0; $i < $aPoint; $i++)
+		{
+			$tennis->aGetScore();
+		}
+		for($i = 0; $i < $bPoint; $i++)
+		{
+			$tennis->bGetScore();
+		}
 	}
 
 }
