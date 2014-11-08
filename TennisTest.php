@@ -2,24 +2,25 @@
 
 class Tennis
 {
-	var $aScore = 'Love';
-	var $bScore = 'Love';
+	var $aScore = 0;
+	var $bScore = 0;
+	var $score 	= array('Love','15');
 
 	function getScore()
 	{
 		if($this->aScore == $this->bScore)
-			return $this->aScore . ' All';
-		return $this->aScore . ' ' . $this->bScore;
+			return $this->score[$this->aScore] . ' All';
+		return $this->score[$this->aScore] . ' ' . $this->score[$this->bScore];
 	}
 
 	function aGetScore()
 	{
-		$this->aScore = 15;
+		$this->aScore++;
 	}
 
 	function bGetScore()
 	{
-		$this->bScore = 15;
+		$this->bScore++;
 	}
 }
 
@@ -59,4 +60,16 @@ class TennisTest extends PHPUnit_Framework_TestCase
 
 		$this->assertEquals( '15 All', $tennis->getScore() );
 	}
+
+	// function testWhenScore15AllAndBGetScoreThenScoreShouldBe1530()
+	// {
+	// 	$tennis = new Tennis();
+	// 	$tennis->aGetScore();
+	// 	$tennis->bGetScore();
+
+	// 	$tennis->bGetScore();
+
+	// 	$this->assertEquals( '15 30', $tennis->getScore() );
+	// }
+
 }
