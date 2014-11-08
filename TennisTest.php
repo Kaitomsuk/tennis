@@ -4,7 +4,7 @@ class Tennis
 {
 	var $aScore = 0;
 	var $bScore = 0;
-	var $score 	= array('Love','15');
+	var $score 	= array('Love', '15', '30');
 
 	function getScore()
 	{
@@ -61,15 +61,15 @@ class TennisTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals( '15 All', $tennis->getScore() );
 	}
 
-	// function testWhenScore15AllAndBGetScoreThenScoreShouldBe1530()
-	// {
-	// 	$tennis = new Tennis();
-	// 	$tennis->aGetScore();
-	// 	$tennis->bGetScore();
+	function testWhenScore15AllAndBGetScoreThenScoreShouldBe1530()
+	{
+		$tennis = new Tennis();
+		$tennis->aGetScore();
+		$tennis->bGetScore();
 
-	// 	$tennis->bGetScore();
+		$tennis->bGetScore();
 
-	// 	$this->assertEquals( '15 30', $tennis->getScore() );
-	// }
+		$this->assertEquals( '15 30', $tennis->getScore() );
+	}
 
 }
